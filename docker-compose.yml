@@ -4,6 +4,13 @@ services:
     build: .
     ports:
       - "23333:80"
+    environment:
+      - WASABI_ACCESS_KEY=${WASABI_ACCESS_KEY}
+      - WASABI_SECRET_KEY=${WASABI_SECRET_KEY}
+      - WASABI_BUCKET=${WASABI_BUCKET}
+      - WASABI_REGION=${WASABI_REGION}
+      - WASABI_PREFIX=${WASABI_PREFIX}
+      - WASABI_HOST=${WASABI_HOST}
     volumes:
       - ./proxy/conf.d:/etc/nginx/conf.d
       - ./proxy/nginx.conf:/etc/nginx/nginx.conf
